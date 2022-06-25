@@ -13,8 +13,8 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.50.2/g' package/base-files/files/bin/config_generate #修改默认ip
 sed -i 's/OpenWrt/VPN/g' package/base-files/files/bin/config_generate #修改主机名
-sed -i '160a\				set network.$1.gateway='192.168.50.1'' package/base-files/files/bin/config_generate #修改默认网关
-sed -i '161a\				set network.$1.dns='8.8.8.8 223.5.5.5'' package/base-files/files/bin/config_generate #修改默认DNS
+sed -i '159a\				set network.$1.gateway='"'192.168.50.1'" package/base-files/files/bin/config_generate #修改默认网关
+sed -i '160a\				set network.$1.dns='"'8.8.8.8 223.5.5.5'" package/base-files/files/bin/config_generate #修改默认DNS
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile   # 选择argon为默认主题
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile   # 选择argon为默认主题
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-ssl-nginx/Makefile   # 选择argon为默认主题
