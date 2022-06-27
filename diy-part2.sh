@@ -12,9 +12,12 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.50.3/g' package/base-files/files/bin/config_generate #修改默认ip
+sed -i 's/root::0:0:99999:7:::/root:$1$PWVMDMD1$FKBO9t8oMr/w.aqBTjk2e1:19170:0:99999:7:::/g' package/base-files/files/etc/shadow #修改默认密码
 sed -i "/uci commit system/i\uci set system.@system[0].hostname='VPN'" package/lean/default-settings/files/zzz-default-settings #修改主机名称
 sed -i "s/hostname='OpenWrt'/hostname='VPN'/g" ./package/base-files/files/bin/config_generate #修改主机名称
-sed -i '12d' package/base-files/files/etc/board.d/99-default_network
+sed -i '12d' package/base-files/files/etc/board.d/99-default_network #去掉WAN接口
+sed -i '16,23d' package/network/config/firewall/files/firewall.config #删除防火墙默认规则WAN口规则
+sed -i '18,21d' package/network/config/firewall/files/firewall.config #删除防火墙默认规则
 sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Compiler author%></td><td>Tommy.Goo</td></tr>' package/lean/autocore/files/x86/index.htm #添加编译作者
 sed -i '159a\				set network.$1.gateway='"'192.168.50.1'" package/base-files/files/bin/config_generate #修改默认网关
 sed -i '160a\				set network.$1.broadcast='"'192.168.50.255'" package/base-files/files/bin/config_generate #修改广播域
