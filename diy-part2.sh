@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.50.2/g' package/base-files/files/bin/config_generate #修改默认ip
+sed -i 's/192.168.1.1/192.168.50.3/g' package/base-files/files/bin/config_generate #修改默认ip
 sed -i 's/OpenWrt/VPN/g' package/base-files/files/bin/config_generate #修改主机名
 sed -i '12d' package/base-files/files/etc/board.d/99-default_network
 sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Compiler author%></td><td>Tommy.Goo</td></tr>' package/lean/autocore/files/x86/index.htm #添加编译作者
