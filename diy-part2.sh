@@ -45,11 +45,12 @@ sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Compiler auth
 
 # 修改主题
 sed -i 's/PKG_HASH.*/PKG_HASH:=skip/' feeds/packages/utils/containerd/Makefile #修复依赖
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile   # 选择argon为默认主题
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile   # 选择argon为默认主题
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-ssl-nginx/Makefile   # 选择argon为默认主题
-rm -rf  feeds/luci/themes/luci-theme-argon   # 删除自带argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon   # 替换新版argon
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci/Makefile   # 选择argon为默认主题
+sed -i 's/+luci-app-firewall +luci-proto-ppp/+luci-app-firewall/g' feeds/luci/collections/luci/Makefile   # 删除PPP协议
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci-nginx/Makefile   # 选择argon为默认主题
+sed -i 's/+luci-app-firewall +luci-proto-ppp/+luci-app-firewall/g' feeds/luci/collections/luci-nginx/Makefile   # 删除PPP协议
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci-ssl-nginx/Makefile   # 选择argon为默认主题
+sed -i 's/+luci-app-firewall +luci-proto-ppp/+luci-app-firewall/g' feeds/luci/collections/luci-ssl-nginx/Makefile   # 删除PPP协议
 
 # base.po
 sed -i '5a\msgid "Compiler author"' feeds/luci/modules/luci-base/po/zh-cn/base.po #添加汉化
