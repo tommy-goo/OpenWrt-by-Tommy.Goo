@@ -19,7 +19,8 @@ sed -i '12d' package/base-files/files/etc/board.d/99-default_network #去掉WAN�
 sed -i '30,32d' package/network/services/dnsmasq/files/dhcp.conf #删除默认DHCP规则
 sed -i '29a\	option ignore	1' package/network/services/dnsmasq/files/dhcp.conf #设置默认忽略LAN口DHCP
 sed -i '16,23d' package/network/config/firewall/files/firewall.config #删除防火墙默认规则WAN口规则
-sed -i '18,21d' package/network/config/firewall/files/firewall.config #删除防火墙默认规则
+sed -i '18,21d' package/network/config/firewall/files/firewall.config #删除防火墙默认规则WAN口规则
+sed -i '18,$d' package/network/config/firewall/files/firewall.config #删除防火墙默认规则WAN口规则
 sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Compiler author%></td><td>Tommy.Goo</td></tr>' package/lean/autocore/files/x86/index.htm #添加编译作者
 sed -i '159a\				set network.$1.gateway='"'192.168.50.1'" package/base-files/files/bin/config_generate #修改默认网关
 sed -i '160a\				set network.$1.broadcast='"'192.168.50.255'" package/base-files/files/bin/config_generate #修改广播域
