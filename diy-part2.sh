@@ -20,7 +20,7 @@ sed -i 's/192.168.1.1/192.168.50.3/g' package/base-files/files/bin/config_genera
 sed -i "s/hostname='OpenWrt'/hostname='VPN'/g" package/base-files/files/bin/config_generate #修改主机名称
 sed -i '159a\				set network.$1.gateway='"'192.168.50.1'" package/base-files/files/bin/config_generate #修改默认网关
 sed -i '160a\				set network.$1.broadcast='"'192.168.50.255'" package/base-files/files/bin/config_generate #修改广播域
-sed -i '161a\				set network.$1.dns='"'8.8.8.8 223.5.5.5'" package/base-files/files/bin/config_generate #修改默认DNS
+sed -i '161a\				set network.$1.dns='"'223.5.5.5 119.29.29.29'" package/base-files/files/bin/config_generate #修改默认DNS
 sed -i '162a\				set network.$1.delegate='"'0'" package/base-files/files/bin/config_generate #禁用IPV6分配长度
 
 # zzz-default-settings
